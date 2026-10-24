@@ -1,0 +1,15 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357003333333333",
+      "service": "parcel-nl",
+      "estimatedTimeOfDelivery": "2026-10-21T15:00:00+02:00",
+      "estimatedDeliveryTimeFrame": {"estimatedFrom": "2026-10-21T13:00:00+02:00", "estimatedThrough": "2026-10-21T15:00:00+02:00"},
+      "status": {"timestamp": "2026-10-21T08:12:00+02:00", "statusCode": "transit", "status": "IN_DELIVERY", "statusDetailed": "OUT_FOR_DELIVERY", "description": "The shipment has been loaded onto the delivery vehicle"},
+      "events": [
+        {"timestamp": "2026-10-21T08:12:00+02:00", "statusCode": "transit", "status": "IN_DELIVERY", "statusDetailed": "OUT_FOR_DELIVERY", "description": "The shipment has been loaded onto the delivery vehicle"},
+        {"timestamp": "2026-10-20T22:40:00+02:00", "statusCode": "transit", "status": "SORTED", "description": "The shipment has been sorted"}
+      ]
+    }
+  ]
+}

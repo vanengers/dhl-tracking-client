@@ -1,0 +1,30 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357001234567890",
+      "service": "parcel-nl",
+      "origin": {"address": {"countryCode": "NL", "postalCode": "3542AD", "addressLocality": "Utrecht"}},
+      "destination": {"address": {"countryCode": "NL", "postalCode": "1012AB", "addressLocality": "Amsterdam"}},
+      "status": {
+        "timestamp": "2026-10-20T14:31:00+02:00",
+        "location": {"address": {"countryCode": "NL", "postalCode": "1012AB", "addressLocality": "Amsterdam"}},
+        "statusCode": "delivered",
+        "status": "DELIVERED",
+        "description": "The shipment has been delivered"
+      },
+      "details": {
+        "product": {"productName": "DHL Parcel Connect"},
+        "proofOfDelivery": {"timestamp": "2026-10-20T14:31:00+02:00", "signatureUrl": "https://example.invalid/pod/signature.png"},
+        "totalNumberOfPieces": 1,
+        "pieceIds": ["JVGL06191357001234567890"]
+      },
+      "events": [
+        {"timestamp": "2026-10-20T14:31:00+02:00", "location": {"address": {"countryCode": "NL", "postalCode": "1012AB", "addressLocality": "Amsterdam"}}, "statusCode": "delivered", "status": "DELIVERED", "description": "The shipment has been delivered"},
+        {"timestamp": "2026-10-20T08:12:00+02:00", "location": {"address": {"countryCode": "NL", "addressLocality": "Amsterdam"}}, "statusCode": "transit", "status": "IN_DELIVERY", "description": "The shipment has been loaded onto the delivery vehicle"},
+        {"timestamp": "2026-10-19T22:40:00+02:00", "location": {"address": {"countryCode": "NL", "addressLocality": "Amsterdam"}}, "statusCode": "transit", "status": "SORTED", "description": "The shipment has been sorted at the parcel centre"},
+        {"timestamp": "2026-10-19T17:05:00+02:00", "location": {"address": {"countryCode": "NL", "addressLocality": "Utrecht"}}, "statusCode": "transit", "status": "PICKED_UP", "description": "The shipment has been picked up by DHL"},
+        {"timestamp": "2026-10-19T11:20:00+02:00", "statusCode": "pre-transit", "status": "DATA_RECEIVED", "description": "The shipment data has been received"}
+      ]
+    }
+  ]
+}

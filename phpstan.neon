@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    phpVersion: 80100
+    # Runtime guards (e.g. TrackingConfig validation) must stay even where PHPDoc already narrows the type.
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - src
+        - tests
+    tmpDir: var/phpstan

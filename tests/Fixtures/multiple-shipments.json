@@ -1,0 +1,16 @@
+{
+  "shipments": [
+    {
+      "id": "1234567890-OTHER",
+      "service": "express",
+      "status": {"timestamp": "2026-10-22T10:00:00Z", "statusCode": "transit", "status": "Processed at hub"},
+      "events": [{"timestamp": "2026-10-22T10:00:00Z", "statusCode": "transit", "status": "Processed at hub"}]
+    },
+    {
+      "id": "1234567890",
+      "service": "parcel-nl",
+      "status": {"timestamp": "2026-10-21T14:00:00+02:00", "statusCode": "delivered", "status": "The shipment has been delivered"},
+      "events": [{"timestamp": "2026-10-21T14:00:00+02:00", "statusCode": "delivered", "status": "The shipment has been delivered"}]
+    }
+  ]
+}

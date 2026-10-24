@@ -1,0 +1,22 @@
+{
+  "shipments": [
+    {
+      "id": "00340434292135100186",
+      "service": "parcel-de",
+      "destination": {"address": {"countryCode": "DE", "postalCode": "53113", "addressLocality": "Bonn"}},
+      "status": {
+        "timestamp": "2026-10-21T09:14:00",
+        "location": {"address": {"countryCode": "DE", "postalCode": "53113", "addressLocality": "Bonn"}},
+        "statusCode": "transit",
+        "status": "The shipment is ready for pick-up at the PACKSTATION.",
+        "statusDetailed": "PCKST_ZUGESTELLT"
+      },
+      "events": [
+        {"timestamp": "2026-10-21T09:14:00", "location": {"address": {"countryCode": "DE", "postalCode": "53113", "addressLocality": "Bonn"}}, "statusCode": "transit", "status": "The shipment is ready for pick-up at the PACKSTATION.", "statusDetailed": "PCKST_ZUGESTELLT"},
+        {"timestamp": "2026-10-21T06:02:00", "statusCode": "transit", "status": "The shipment has been loaded onto the delivery vehicle"},
+        {"timestamp": "2026-10-20T19:30:00", "statusCode": "transit", "status": "The shipment has been processed in the parcel center"},
+        {"timestamp": "2026-10-20T08:00:00", "statusCode": "pre-transit", "status": "The instruction data for this shipment have been provided by the sender to DHL electronically", "statusDetailed": "PARCV_NRQRD_VA"}
+      ]
+    }
+  ]
+}
