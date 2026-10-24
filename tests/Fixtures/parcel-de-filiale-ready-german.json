@@ -1,0 +1,19 @@
+{
+  "shipments": [
+    {
+      "id": "00340434292135100200",
+      "service": "parcel-de",
+      "status": {
+        "timestamp": "2026-10-21T10:45:00",
+        "location": {"address": {"countryCode": "DE", "postalCode": "10115", "addressLocality": "Berlin"}},
+        "statusCode": "transit",
+        "status": "Die Sendung liegt in der Filiale zur Abholung bereit."
+      },
+      "events": [
+        {"timestamp": "2026-10-21T10:45:00", "location": {"address": {"countryCode": "DE", "postalCode": "10115", "addressLocality": "Berlin"}}, "statusCode": "transit", "status": "Die Sendung liegt in der Filiale zur Abholung bereit."},
+        {"timestamp": "2026-10-21T08:30:00", "statusCode": "failure", "status": "Der Empfänger wurde nicht angetroffen. Die Sendung wird in eine Filiale gebracht."},
+        {"timestamp": "2026-10-20T19:30:00", "statusCode": "transit", "status": "Die Sendung wurde im Paketzentrum bearbeitet."}
+      ]
+    }
+  ]
+}

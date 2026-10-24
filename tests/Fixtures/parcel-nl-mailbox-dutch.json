@@ -1,0 +1,13 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357004444444444",
+      "service": "parcel-nl",
+      "status": {"timestamp": "2026-10-21T12:05:00+02:00", "statusCode": "delivered", "status": "Bezorgd", "description": "Je pakket is bezorgd in de brievenbus"},
+      "events": [
+        {"timestamp": "2026-10-21T12:05:00+02:00", "statusCode": "delivered", "status": "Bezorgd", "description": "Je pakket is bezorgd in de brievenbus"},
+        {"timestamp": "2026-10-21T08:00:00+02:00", "statusCode": "transit", "status": "Onderweg", "description": "De bezorger is onderweg"}
+      ]
+    }
+  ]
+}

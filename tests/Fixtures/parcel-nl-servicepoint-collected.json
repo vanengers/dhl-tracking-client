@@ -1,0 +1,41 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357009876543210",
+      "service": "parcel-nl",
+      "status": {
+        "timestamp": "2026-10-22T16:40:00+02:00",
+        "location": {
+          "address": {"countryCode": "NL", "postalCode": "3511AB", "addressLocality": "Utrecht"},
+          "servicePoint": {"label": "Primera Centrum", "url": "https://www.dhl.com/nl-en/home/location-finder.html?id=NL-123456"}
+        },
+        "statusCode": "delivered",
+        "status": "PICKED_UP_BY_RECIPIENT",
+        "description": "The shipment has been picked up by the recipient at the DHL ServicePoint"
+      },
+      "events": [
+        {
+          "timestamp": "2026-10-22T16:40:00+02:00",
+          "location": {
+            "address": {"countryCode": "NL", "postalCode": "3511AB", "addressLocality": "Utrecht"},
+            "servicePoint": {"label": "Primera Centrum", "url": "https://www.dhl.com/nl-en/home/location-finder.html?id=NL-123456"}
+          },
+          "statusCode": "delivered",
+          "status": "PICKED_UP_BY_RECIPIENT",
+          "description": "The shipment has been picked up by the recipient at the DHL ServicePoint"
+        },
+        {
+          "timestamp": "2026-10-21T11:02:00+02:00",
+          "location": {
+            "address": {"countryCode": "NL", "postalCode": "3511AB", "addressLocality": "Utrecht"},
+            "servicePoint": {"label": "Primera Centrum", "url": "https://www.dhl.com/nl-en/home/location-finder.html?id=NL-123456"}
+          },
+          "statusCode": "delivered",
+          "status": "DELIVERED_AT_SERVICEPOINT",
+          "description": "The shipment has been delivered at the DHL ServicePoint"
+        },
+        {"timestamp": "2026-10-20T21:10:00+02:00", "statusCode": "transit", "status": "SORTED", "description": "The shipment has been sorted"}
+      ]
+    }
+  ]
+}

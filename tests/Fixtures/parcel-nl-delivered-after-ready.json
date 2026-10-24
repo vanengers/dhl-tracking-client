@@ -1,0 +1,19 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357005555555555",
+      "service": "parcel-nl",
+      "status": {"timestamp": "2026-10-22T12:00:00+02:00", "statusCode": "delivered", "status": "Delivered"},
+      "events": [
+        {"timestamp": "2026-10-22T12:00:00+02:00", "statusCode": "delivered", "status": "Delivered"},
+        {
+          "timestamp": "2026-10-21T10:30:00+02:00",
+          "location": {"address": {"countryCode": "NL", "postalCode": "2511CV", "addressLocality": "Den Haag"}},
+          "statusCode": "transit",
+          "status": "The shipment is ready for pickup at the DHL ServicePoint"
+        },
+        {"timestamp": "2026-10-20T20:00:00+02:00", "statusCode": "transit", "status": "The shipment has been sorted"}
+      ]
+    }
+  ]
+}

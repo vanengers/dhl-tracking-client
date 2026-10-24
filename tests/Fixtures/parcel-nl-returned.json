@@ -1,0 +1,14 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357008888888888",
+      "service": "parcel-nl",
+      "returnFlag": true,
+      "status": {"timestamp": "2026-10-30T09:00:00+01:00", "statusCode": "transit", "status": "RETURN", "description": "The shipment is being returned to the sender"},
+      "events": [
+        {"timestamp": "2026-10-30T09:00:00+01:00", "statusCode": "transit", "status": "RETURN", "description": "The shipment is being returned to the sender"},
+        {"timestamp": "2026-10-29T18:00:00+01:00", "statusCode": "failure", "status": "NOT_COLLECTED", "description": "The shipment was not collected from the DHL ServicePoint in time"}
+      ]
+    }
+  ]
+}

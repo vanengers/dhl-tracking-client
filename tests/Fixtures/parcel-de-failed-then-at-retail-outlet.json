@@ -1,0 +1,25 @@
+{
+  "shipments": [
+    {
+      "id": "00340434292135100500",
+      "service": "parcel-de",
+      "status": {
+        "timestamp": "2026-10-21T11:00:00",
+        "location": {"address": {"countryCode": "DE", "postalCode": "50667", "addressLocality": "Köln"}},
+        "statusCode": "failure",
+        "status": "The recipient was not at home. The shipment can be picked up at the retail outlet from 10:00 on the next working day.",
+        "nextSteps": "Please bring the notification card and your ID."
+      },
+      "events": [
+        {
+          "timestamp": "2026-10-21T11:00:00",
+          "location": {"address": {"countryCode": "DE", "postalCode": "50667", "addressLocality": "Köln"}},
+          "statusCode": "failure",
+          "status": "The recipient was not at home. The shipment can be picked up at the retail outlet from 10:00 on the next working day.",
+          "nextSteps": "Please bring the notification card and your ID."
+        },
+        {"timestamp": "2026-10-21T07:10:00", "statusCode": "transit", "status": "The shipment has been loaded onto the delivery vehicle"}
+      ]
+    }
+  ]
+}

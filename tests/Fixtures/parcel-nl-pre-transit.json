@@ -1,0 +1,12 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357002222222222",
+      "service": "parcel-nl",
+      "status": {"timestamp": "2026-10-21T09:00:00+02:00", "statusCode": "pre-transit", "status": "DATA_RECEIVED", "description": "The shipment data has been received"},
+      "events": [
+        {"timestamp": "2026-10-21T09:00:00+02:00", "statusCode": "pre-transit", "status": "DATA_RECEIVED", "description": "The shipment data has been received"}
+      ]
+    }
+  ]
+}

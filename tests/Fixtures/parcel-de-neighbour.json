@@ -1,0 +1,13 @@
+{
+  "shipments": [
+    {
+      "id": "00340434292135100300",
+      "service": "parcel-de",
+      "status": {"timestamp": "2026-10-21T13:20:00", "statusCode": "delivered", "status": "The shipment has been delivered to the neighbour."},
+      "events": [
+        {"timestamp": "2026-10-21T13:20:00", "statusCode": "delivered", "status": "The shipment has been delivered to the neighbour."},
+        {"timestamp": "2026-10-21T07:10:00", "statusCode": "transit", "status": "The shipment has been loaded onto the delivery vehicle"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357006666666666",
+      "service": "parcel-nl",
+      "status": {"timestamp": "2026-10-21T07:45:00+02:00", "statusCode": "transit", "status": "IN_DELIVERY", "description": "The shipment is on its way to the DHL ServicePoint"},
+      "events": [
+        {"timestamp": "2026-10-21T07:45:00+02:00", "statusCode": "transit", "status": "IN_DELIVERY", "description": "The shipment is on its way to the DHL ServicePoint"},
+        {"timestamp": "2026-10-20T21:10:00+02:00", "statusCode": "transit", "status": "SORTED", "description": "The shipment has been sorted"}
+      ]
+    }
+  ]
+}

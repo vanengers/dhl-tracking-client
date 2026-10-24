@@ -1,0 +1,31 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL06191357001111111111",
+      "service": "parcel-nl",
+      "status": {
+        "timestamp": "2026-10-21T16:20:00+02:00",
+        "location": {
+          "address": {"countryCode": "NL", "postalCode": "5611AA", "addressLocality": "Eindhoven"},
+          "servicePoint": {"label": "Tabakspeciaalzaak De Hoek", "url": "https://www.dhl.com/nl-en/home/location-finder.html?id=NL-654321"}
+        },
+        "statusCode": "transit",
+        "status": "HANDED_IN",
+        "description": "The shipment has been handed in at the DHL ServicePoint by the sender"
+      },
+      "events": [
+        {
+          "timestamp": "2026-10-21T16:20:00+02:00",
+          "location": {
+            "address": {"countryCode": "NL", "postalCode": "5611AA", "addressLocality": "Eindhoven"},
+            "servicePoint": {"label": "Tabakspeciaalzaak De Hoek", "url": "https://www.dhl.com/nl-en/home/location-finder.html?id=NL-654321"}
+          },
+          "statusCode": "transit",
+          "status": "HANDED_IN",
+          "description": "The shipment has been handed in at the DHL ServicePoint by the sender"
+        },
+        {"timestamp": "2026-10-21T09:00:00+02:00", "statusCode": "pre-transit", "status": "DATA_RECEIVED", "description": "The shipment data has been received"}
+      ]
+    }
+  ]
+}

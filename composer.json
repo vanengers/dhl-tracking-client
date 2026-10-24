@@ -1,0 +1,36 @@
+{
+    "name": "gpwebshops/dhl-tracking-client",
+    "description": "Client for the DHL Shipment Tracking - Unified API: shipment events and a delivery status that tells delivered apart from ready for pickup at a service point.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.4",
+        "psr/log": "^1.1 || ^2 || ^3"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5 || ^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GPWebshops\\ShopHub\\Dhl\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GPWebshops\\ShopHub\\Dhl\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit",
+        "test:sandbox": "@php vendor/bin/phpunit --group sandbox",
+        "stan": "@php vendor/bin/phpstan analyse --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
