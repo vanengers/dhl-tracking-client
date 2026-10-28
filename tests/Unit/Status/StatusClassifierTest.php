@@ -39,6 +39,7 @@ final class StatusClassifierTest extends TestCase
         yield 'failed attempt, waits at retail outlet' => ['parcel-de-failed-then-at-retail-outlet', '00340434292135100500', DeliveryState::ReadyForPickup, null, PickupPointType::PostOffice];
         yield 'not collected from service point' => ['parcel-nl-not-collected', 'JVGL06191357007777777777', DeliveryState::DeliveryFailed, null, PickupPointType::ServicePoint];
         yield 'returned to sender' => ['parcel-nl-returned', 'JVGL06191357008888888888', DeliveryState::Returned, null, null];
+        yield 'real: collected from a DHL Locker' => ['real-parcel-nl-locker-collected', 'JVGL08900000000000000001', DeliveryState::Delivered, DeliveryPlace::PickupPoint, PickupPointType::Locker];
         yield 'several shipments: exact id wins' => ['multiple-shipments', '1234567890', DeliveryState::Delivered, DeliveryPlace::Address, null];
     }
 
@@ -191,6 +192,37 @@ final class StatusClassifierTest extends TestCase
         self::assertSame([$state, $place, $pointType, $reason], [$status->state, $status->deliveryPlace, $status->pickupPoint?->type, $status->reason]);
     }
 
+    /**
+     * A real parcel-nl response, replayed: what each check would have said after every event.
+     *
+     * @return iterable<string, array{int, DeliveryState, string, ?PickupPointType}>
+     */
+    public static function realLockerTimeline(): iterable
+    {
+        yield 'sorted at hub' => [15, DeliveryState::InTransit, 'transit', null];
+        yield 'pre-notification after the hub scan' => [14, DeliveryState::InTransit, 'pre-transit:after-transit', null];
+        yield 'receiver asks for a service point' => [12, DeliveryState::InTransit, 'unknown:after-transit', null];
+        yield 'address changed to service point' => [9, DeliveryState::InTransit, 'unknown:after-transit', null];
+        yield 'new delivery attempt' => [8, DeliveryState::InTransit, 'transit', null];
+        yield 'out for delivery' => [3, DeliveryState::OutForDelivery, 'transit:out-for-delivery', null];
+        yield 'internal event: not ready for collection' => [2, DeliveryState::InTransit, 'transit', null];
+        yield 'in the locker, ready for collection' => [1, DeliveryState::ReadyForPickup, 'transit:ready-for-pickup', PickupPointType::Locker];
+        yield 'collected from the locker' => [0, DeliveryState::Delivered, 'delivered:collected', PickupPointType::Locker];
+    }
+
+    #[DataProvider('realLockerTimeline')]
+    public function testRealLockerParcelAtEveryCheck(int $from, DeliveryState $state, string $reason, ?PickupPointType $pointType): void
+    {
+        $body = json_decode(Fixtures::read('real-parcel-nl-locker-collected'), true, 512, JSON_THROW_ON_ERROR);
+        $shipment = $body['shipments'][0];
+        $shipment['events'] = array_slice($shipment['events'], $from);
+        $shipment['status'] = $shipment['events'][0];
+
+        $status = $this->classify($shipment);
+
+        self::assertSame([$state, $reason, $pointType], [$status->state, $status->reason, $status->pickupPoint?->type]);
+    }
+
     public function testExtraKeywordsExtendTheRules(): void
     {
         $shipment = Fixtures::shipment([Fixtures::event('transit', 'Pakket staat voor je klaar bij de Primera', '2026-10-21T10:00:00+02:00')]);
@@ -212,6 +244,7 @@ final class StatusClassifierTest extends TestCase
         self::assertSame('service_point', $row['pickup_point_type']);
         self::assertSame('Primera Centrum', $row['pickup_point_label']);
         self::assertSame('delivered', $row['dhl_status_code']);
+        self::assertSame('DELIVERED_AT_SERVICEPOINT', $row['dhl_event']);
         self::assertSame('parcel-nl', $row['service']);
         self::assertNull($row['delivered_at']);
     }

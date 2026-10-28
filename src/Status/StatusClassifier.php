@@ -26,8 +26,10 @@ use GPWebshops\ShopHub\Dhl\Model\StatusCode;
  *  4. other codes: "ready for pickup" text, or "arrived at the <pickup point>" text, or a transit scan at a service
  *     point after the parcel already moved (not the sender's drop-off)         -> ReadyForPickup
  *     "out for delivery" text, not on the way to a pickup point                -> OutForDelivery
- *     transit -> InTransit, pre-transit -> PreTransit, unknown -> guessed from text and earlier events
- * Texts about the future ("will be delivered to a ServicePoint") or about the sender never mean ReadyForPickup.
+ *     transit -> InTransit, pre-transit -> PreTransit (InTransit when an earlier event was transit), unknown -> guessed
+ *     from text and earlier events
+ * Texts about the future ("will be delivered to a ServicePoint", INTERVENTION_* choices of the receiver), about the
+ * sender, or saying "not ready for collection" never mean ReadyForPickup.
  */
 final class StatusClassifier
 {
@@ -137,7 +139,10 @@ final class StatusClassifier
 
         return match ($code) {
             StatusCode::Transit => new Verdict(DeliveryState::InTransit, 'transit'),
-            StatusCode::PreTransit => new Verdict(DeliveryState::PreTransit, 'pre-transit'),
+            // DHL sometimes sends its pre-notification after the first hub scan; the parcel is on its way already.
+            StatusCode::PreTransit => self::hasCode($older, StatusCode::Transit)
+                ? new Verdict(DeliveryState::InTransit, 'pre-transit:after-transit')
+                : new Verdict(DeliveryState::PreTransit, 'pre-transit'),
             default => $this->unknown($text, $older),
         };
     }
@@ -167,7 +172,8 @@ final class StatusClassifier
      */
     private function readyAt(Shipment $shipment, Event $event, StatusCode $code, string $text, array $older): ?PickupPoint
     {
-        if ($code === StatusCode::PreTransit || $this->signals->has(Keywords::NOT_COLLECTED, $text) || $this->signals->isCollected($text)) {
+        if ($code === StatusCode::PreTransit || $this->signals->has(Keywords::NOT_COLLECTED, $text)
+            || $this->signals->has(Keywords::NOT_READY, $text) || $this->signals->isCollected($text)) {
             return null;
         }
         if ($code !== StatusCode::Delivered && ($this->signals->has(Keywords::SENDER, $text) || $this->signals->has(Keywords::FUTURE, $text))) {

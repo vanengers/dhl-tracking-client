@@ -18,6 +18,7 @@ final class Keywords
     public const SERVICE_POINT = 'service_point';
     public const DEPOT = 'depot';
     public const READY = 'ready';
+    public const NOT_READY = 'not_ready';
     public const ARRIVED = 'arrived';
     public const FUTURE = 'future';
     public const COLLECTED = 'collected';
@@ -57,6 +58,11 @@ final class Keywords
                 'kan opgehaald worden', 'kan nu worden opgehaald', 'kan worden afgehaald', 'kan afgehaald worden',
                 'abholbereit', 'zur abholung', 'kann abgeholt werden', 'abholung bereit',
             ],
+            // Seen in a real parcel-nl response: "INTERNAL EVENT - Parcel not ready for collection at DHL ServicePoint".
+            self::NOT_READY => [
+                'not ready', 'not yet ready', 'not available for', 'not yet available', 'niet klaar', 'nog niet klaar',
+                'nog niet beschikbaar', 'nicht abholbereit', 'noch nicht abholbereit', 'noch nicht zur abholung',
+            ],
             self::ARRIVED => [
                 'delivered to', 'delivered at', 'delivered in', 'arrived at', 'has arrived', 'now at', 'is at the', 'placed in',
                 'deposited in', 'bezorgd bij', 'bezorgd in', 'bezorgd op', 'afgeleverd bij', 'afgeleverd in', 'aangekomen bij',
@@ -66,6 +72,8 @@ final class Keywords
                 'will be', 'being delivered', 'being transported', 'being brought', 'wordt', 'zal', 'expected', 'on its way',
                 'on the way', 'onderweg', 'unterwegs', 'forwarded',
                 'doorgestuurd', 'weitergeleitet', 'redirected', 'rerouted',
+                // Real parcel-nl texts: INTERVENTION_* codes are the receiver's choices, not where the parcel is.
+                'intervention', 'we ll deliver', 'we will deliver', 'changed to', 'gewijzigd naar', 'geändert',
             ],
             self::COLLECTED => [
                 'picked up by the recipient', 'picked up by recipient', 'picked up by the consignee', 'picked up by the customer',

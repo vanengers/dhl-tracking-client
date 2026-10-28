@@ -1,0 +1,42 @@
+{
+  "shipments": [
+    {
+      "id": "JVGL08900000000000000001",
+      "service": "parcel-nl",
+      "destination": {
+        "address": {"addressLocality": "Utrecht", "countryCode": "NL", "postalCode": "3511AB"}
+      },
+      "status": {
+        "timestamp": "2026-10-26T08:47:47.094+01:00",
+        "statusCode": "delivered",
+        "status": "COLLECTED_AT_PARCELSTATION",
+        "description": "Collected from DHL Locker by the recipient"
+      },
+      "details": {
+        "product": {"productName": "DFY - DHL FOR YOU"},
+        "receiver": {"@type": "Person", "name": "A. Recipient"},
+        "sender": {"@type": "Person", "name": "SHOP.EXAMPLE"},
+        "carrier": {"@type": "Organization", "organizationName": "ECOMMERCE"},
+        "proofOfDeliverySignedAvailable": false
+      },
+      "events": [
+        {"timestamp": "2026-10-26T08:47:47.094+01:00", "statusCode": "delivered", "status": "COLLECTED_AT_PARCELSTATION", "description": "Collected from DHL Locker by the recipient"},
+        {"timestamp": "2026-10-23T13:45:06.885+02:00", "statusCode": "transit", "status": "NOTIFICATION_FOR_PARCELSTATION_COLLECTION_HAS_BEEN_SENT", "description": "Parcel delivered in DHL Locker and is ready for collection"},
+        {"timestamp": "2026-10-23T13:45:06+02:00", "statusCode": "transit", "status": "DELIVERED_AT_PARCELSHOP", "description": "INTERNAL EVENT - Parcel not ready for collection at DHL ServicePoint"},
+        {"timestamp": "2026-10-23T11:05:49+02:00", "statusCode": "transit", "status": "OUT_FOR_DELIVERY", "description": "Out for delivery with the courier"},
+        {"timestamp": "2026-10-23T11:02:15+02:00", "statusCode": "transit", "status": "PARCEL_HANDED_OVER_TO_COURIER", "description": "Handed over to the courier"},
+        {"timestamp": "2026-10-23T10:35:21+02:00", "statusCode": "transit", "status": "PARCEL_SCANNED_INTO_HAND-TERMINAL", "description": "Entered into handheld device of the courier"},
+        {"timestamp": "2026-10-23T08:04:53+02:00", "statusCode": "transit", "status": "PARCEL_ARRIVED_AT_LOCAL_DEPOT", "description": "Arrived in your region"},
+        {"timestamp": "2026-10-23T03:12:07+02:00", "statusCode": "transit", "status": "DELIVERY_PLANNED_IN_ROUTE", "description": "Delivery planned in the route of the courier"},
+        {"timestamp": "2026-10-23T03:12:06+02:00", "statusCode": "transit", "status": "NEW_DELIVERY_ATTEMPT", "description": "New delivery attempt on the next delivery day"},
+        {"timestamp": "2026-10-23T03:02:12+02:00", "statusCode": "unknown", "status": "INTERVENTION_DELIVERY_ADDRESS_CHANGED_INTO_PARCELSHOP", "description": "Delivery address changed to DHL ServicePoint"},
+        {"timestamp": "2026-10-23T03:02:12+02:00", "statusCode": "unknown", "status": "INTERVENTION_PROCESSED_FOR_COLLECTION_AT_PARCELSHOP", "description": "Delivery instruction changed to delivery at DHL ServicePoint"},
+        {"timestamp": "2026-10-23T00:14:38.529+02:00", "statusCode": "unknown", "status": "INTERVENTION_SYSTEM_REQUESTS_DELIVERY_AT_PARCELSHOP", "description": "We'll deliver your parcel at the specified DHL ServicePoint"},
+        {"timestamp": "2026-10-23T00:14:38+02:00", "statusCode": "unknown", "status": "INTERVENTION_RECEIVER_REQUESTS_DELIVERY_AT_PARCELSHOP", "description": "We deliver your shipment at a DHL ServicePoint"},
+        {"timestamp": "2026-10-23T00:14:28+02:00", "statusCode": "transit", "status": "INFORMATION_ON_DELIVERY_TRANSMITTED", "description": "Delivery planned at the CityHub"},
+        {"timestamp": "2026-10-23T00:12:32+02:00", "statusCode": "pre-transit", "status": "PRENOTIFICATION_RECEIVED", "description": "Shipment not yet received or processed"},
+        {"timestamp": "2026-10-23T00:08:26+02:00", "statusCode": "transit", "status": "PARCEL_SORTED_AT_HUB", "description": "Processed at the sorting center"}
+      ]
+    }
+  ]
+}
