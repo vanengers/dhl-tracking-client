@@ -117,6 +117,8 @@ final class TrackingStatus
             'pickup_point_label' => $this->pickupPoint?->label,
             'pickup_point_address' => $this->pickupPoint?->address?->oneLine(),
             'dhl_status_code' => $this->lastEvent?->rawStatusCode,
+            // DHL's own event code, e.g. COLLECTED_AT_PARCELSTATION: the same in every language, so best to search on.
+            'dhl_event' => $this->lastEvent?->status,
             'dhl_status' => $this->description(),
             'timestamp' => $this->timestamp()?->format(\DateTimeInterface::ATOM),
             'delivered_at' => $this->deliveredAt?->format(\DateTimeInterface::ATOM),

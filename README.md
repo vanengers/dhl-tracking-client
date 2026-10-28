@@ -82,7 +82,16 @@ The full rule order is in the doc comment of `src/Status/StatusClassifier.php`. 
 
 - A sender dropping the parcel off at a service point is **not** "ready for pickup". This is either the sender wording, or the first transit scan of a parcel that has not moved yet.
 - Future texts ("will be delivered to a ServicePoint", "on its way to …") are never "ready for pickup".
+- "Not ready for collection" is not ready: DHL Parcel NL sends `DELIVERED_AT_PARCELSHOP` with "INTERNAL EVENT - Parcel not ready for collection at DHL ServicePoint" just before the real "ready for collection".
+- `INTERVENTION_*` events (the receiver chose a service point, address changed) are plans, not where the parcel is.
 - `remark` and `nextSteps` are ignored, because they say what *may* happen ("will be returned if not collected within 7 days").
+
+**What a real DHL Parcel NL response looks like** (`tests/Fixtures/real-parcel-nl-locker-collected.json`, a parcel collected from a locker, October 2026):
+- `status` is a fixed code such as `OUT_FOR_DELIVERY` or `COLLECTED_AT_PARCELSTATION`, next to an English `description`. `toArray()` gives it as `dhl_event`.
+- "In the locker, ready for collection" comes with `statusCode` **transit**, not delivered. Collected comes with delivered.
+- No event has a `location`, so there is no service point name or address: `pickupPoint` only knows the type.
+- Events are not always in order (the pre-notification came after the first hub scan) and several share a second; the milliseconds decide.
+- `details.receiver.name` holds the customer's name.
 
 **The texts are a best effort.** DHL documents no list of event texts and has no sample tracking numbers. The phrases in `src/Status/Keywords.php` come from DHL's public tracking wording, and the fixtures are hand-made in the shape of the spec. When a real parcel is classified wrongly, check the logged `reason` and the DHL text, and add the phrase. You can add phrases without changing the library:
 

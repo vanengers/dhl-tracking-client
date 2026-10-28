@@ -3,6 +3,7 @@
 Bodies of `GET /shipments`, used by `tests/Unit/Status/StatusClassifierTest.php` and `tests/Unit/DhlTrackingClientTest.php`.
 
 - `spec-example-transit.json` is the example response from the API spec (`docs/dhl-tracking-unified.yaml`).
+- `real-*.json` are real responses from production, with the tracking number, customer name and address replaced.
 - The other files are **hand-made** in the shape of the spec. DHL publishes no list of event texts, so the wording is taken from DHL's public tracking pages and may differ from what the API really sends.
 
 When a real response is classified wrongly:
